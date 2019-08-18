@@ -1,24 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Form from 'react-bootstrap/Form';
+
+//let marked = require('marked');
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <Form>
+          <Form.Group controlId="formControlsTextarea">
+            <Form.Label>Markdown Input: </Form.Label>
+            <Form.Control as="textarea" rows="5" placeholder="Enter markdown" />
+          </Form.Group>
+        </Form>
+      </div>
     </div>
   );
 }
