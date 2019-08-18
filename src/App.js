@@ -2,15 +2,15 @@ import React,{ useState } from 'react';
 import './App.css';
 import Form from 'react-bootstrap/Form';
 
-// let marked = require('marked');
+let marked = require('marked');
 
 function App() {
 
   // Attempting to implement react hooks
 
-  const [ markdown, updateMarkdown ] = useState();
+  const [ markdown, updateMarkdown ] = useState('');
 
-  console.log(markdown);
+  // console.log(markdown);
   return (
     <div className="App container">
       <div>
@@ -20,8 +20,10 @@ function App() {
           </Form.Group>
       </div>
       <div>
-        <h1>Markdown Output: </h1>
-        <div></div>
+        <h1>Markdown Output</h1>
+        <div dangerouslySetInnerHTML = {{__html: marked(markdown)}}>
+          
+        </div>
       </div>
     </div>
   );
