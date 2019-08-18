@@ -1,19 +1,27 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import './App.css';
 import Form from 'react-bootstrap/Form';
 
-//let marked = require('marked');
+// let marked = require('marked');
 
 function App() {
+
+  // Attempting to implement react hooks
+
+  const [ markdown, updateMarkdown ] = useState();
+
+  console.log(markdown);
   return (
-    <div className="App">
+    <div className="App container">
       <div>
-        <Form>
-          <Form.Group controlId="formControlsTextarea">
-            <Form.Label>Markdown Input: </Form.Label>
-            <Form.Control as="textarea" rows="5" placeholder="Enter markdown" />
+          <Form.Group controlId="markdownForm.ControlTextarea">
+            <div><Form.Label>Markdown Input: </Form.Label></div>
+            <Form.Control as="textarea" placeholder="Enter markdown" value={markdown} onChange={(event) => updateMarkdown(event.target.value)} />
           </Form.Group>
-        </Form>
+      </div>
+      <div>
+        <h1>Markdown Output: </h1>
+        <div></div>
       </div>
     </div>
   );
